@@ -1,0 +1,16 @@
+# Exported from Render on 2026-03-02T19:31:42Z
+version: "1"
+projects:
+- name: My project
+  environments:
+  - name: Production
+    services:
+    - type: web
+      name: n8n
+      runtime: node
+      repo: https://github.com/mbulgarini/n8n
+      plan: free
+      region: oregon
+      buildCommand: pnpm install --frozen-lockfile; pnpm run build
+      startCommand: pnpm run start
+      autoDeployTrigger: commit
